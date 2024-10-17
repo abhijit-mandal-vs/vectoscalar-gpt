@@ -1,3 +1,9 @@
+# app.py
+
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import asyncio
 import random
 import streamlit as st
@@ -10,10 +16,6 @@ from vsgpt.chain import ask_question, create_chain
 from vsgpt.config import Config
 from vsgpt.model import create_llm
 from vsgpt.ingestor import Ingestor
-
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # Load environment variables
 load_dotenv()
